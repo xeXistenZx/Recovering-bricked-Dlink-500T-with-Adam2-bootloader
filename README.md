@@ -51,7 +51,7 @@ Router's pin 2 &  4 are GND (tested using a multimeter)
 
 
 **PuTTY settings:**
-- Speed: `38400` (reads rubish wih other speeds)
+- Speed: `38400` (reads rubish at other speeds)
 - Data bits: `8`
 - Stop bits: `1`
 - Parity: `None`
