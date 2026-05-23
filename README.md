@@ -27,7 +27,7 @@ The key discoveries in this guide are **not documented anywhere else** and were 
 
 ## What You Need
 
-- **USB to Serial adapter** (CP2102 or similar, 3.3V)
+- **USB to Serial adapter** (CP2102 or similar as CH340xx, 3.3V)
 - **Ethernet cable** (direct connection, no switch needed)
 - **Windows PC** (the Windows FTP client behaves correctly with ADAM2)
 - **PuTTY** for serial console
@@ -42,12 +42,12 @@ Connect your CP2102 to the router's serial header pins:
 | CP2102 | Router Pin |
 |--------|-----------|
 | TX     | RX        |
-| RX     | TX        |
-| GND    | GND       |
+| RX     | TX        |  TX & RX for for the router are pin 1 & 5 
+| GND    | GND       |  Router's pin 2 &  4 (tested using a multimeter)
 | **Do NOT connect 3.3V** | — |
 
 **PuTTY settings:**
-- Speed: `38400`
+- Speed: `38400` (reads rubish wih other speeds)
 - Data bits: `8`
 - Stop bits: `1`
 - Parity: `None`
@@ -104,7 +104,7 @@ This is the most critical section. The naming is counterintuitive:
 > **MEDIA FLSH** = FLaSH chip writing ✅  
 > **MEDIA FLASH** = RAM upload (confusingly named) ✅
 
-### The 21-Second Timeout Rule
+### The 21-Second Timeout Rule 
 
 ADAM2 erases flash at approximately **1 second per 64KB block**. During erase, the FTP connection drops. If the erase takes too long the write never happens.
 
@@ -397,7 +397,6 @@ However — and this is important — **the actual breakthroughs were all human 
 - Correctly diagnosing why the split filesystem was causing boot failures
 - Persistent trial and error across dozens of attempts without giving up
 
-The AIs provided knowledge and guidance. The engineer provided curiosity, persistence, and the creative leaps that actually solved it.
 
 **Tested on:** D-Link DSL-500T, ADAM2 v0.22.02, AR7DB chipset  
 **OpenWrt version:** Kamikaze 8.09.2 (r18961)  
@@ -405,9 +404,9 @@ The AIs provided knowledge and guidance. The engineer provided curiosity, persis
 
 ### Special mention
 
-A huge thank you to **AliExpress** for making USB-to-serial adapters available for under £1 each. The exact hero of this recovery was a **CP2102** from a lot of 3 (PL2303HX + CP2102 + CH340G) purchased for £2.60 — approximately **£0.864 per adapter** including free shipping. 
+A huge thank you to **AliExpress** for making USB-to-serial adapters available for under £1 each. 
 
-Some may call that being scammed. We call it the best £0.864 ever spent. 😄
+Some may call that being scammed. We call it the best £0.86 ever spent. 😄
 
 Without these incredibly cheap little devices, hardware recovery projects like this would require expensive professional equipment. The democratisation of embedded hardware hacking is real — anyone can now talk to a bootloader for less than the price of a coffee! ☕
 
