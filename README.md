@@ -46,7 +46,7 @@ Connect your CP2102 to the router's serial header pins:
 | GND    | GND       |  
 | **Do NOT connect 3.3V** | — |
 
-TX & RX for for the router are pin 1 & 5
+TX & RX for for the router are pin 1 & 5. 
 Router's pin 2 &  4 (tested using a multimeter)
 
 
