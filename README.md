@@ -1,6 +1,6 @@
 # Recovering a Bricked D-Link DSL-500T with ADAM2 Bootloader
 ## Complete Guide to Flashing OpenWrt via Serial + FTP
-
+ 
 ---
 
 ## Background
